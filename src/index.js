@@ -16,6 +16,7 @@ const rootReducer = combineReducers({
 });
 
 const logger = store => {
+    // next function is provided by redux if we dont use next then we are unable to pass the action further
     return next => {
         return action => {
             console.log('[Middleware] dispatching ', action);

@@ -8,8 +8,12 @@ export const saveResult = (value) => {
 }
 
 export const storeResult = (value) => {
-    return function (dispatch){
+    return function (dispatch, getState) {
         setTimeout(() => {
+            // nice utility function but dont overuse
+            // better way to pass parameter from the container where we have write dispatch funtion in mapsPropsToDispatch
+            const oldCounter = getState().ctr.counter; 
+            console.log('[old value]' + oldCounter);
             dispatch(saveResult(value))
         }, 2000)
     }
